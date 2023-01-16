@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": false, // required
+    "editor.formatOnType": false, // required
+    "editor.formatOnSave": true, // optional
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.fixAll.eslint": true
+    },
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.revealIfOpen": true,
+    "[javascript]": {
+      "editor.rulers": [100],
+      "editor.tabSize": 2
+    },
+    "[javascriptreact]": {
+      "editor.rulers": [100],
+      "editor.tabSize": 2
+    },
+    "[typescript]": {
+      "editor.rulers": [100],
+      "editor.tabSize": 2
+    },
+    "[typescriptreact]": {
+      "editor.rulers": [100],
+      "editor.tabSize": 2
+    },
+    "css.lint.unknownAtRules": "ignore"
+  },
+  "extensions": {
+    "recommendations": [
+      "albert.tabout",
+      "ritwickdey.liveserver",
+      "esbenp.prettier-vscode",
+      "ecmel.vscode-html-css",
+      "formulahendry.auto-close-tag",
+      // "vscodevim.vim",
+      "naumovs.color-highlight",
+      "dsznajder.es7-react-js-snippets",
+      "ms-vsliveshare.vsliveshare",
+      "ms-vsliveshare.vsliveshare-pack",
+      "amatiasq.sort-imports",
+      // "rvest.vs-code-prettier-eslint",
+      "dbaeumer.vscode-eslint",
+      "jock.svg",
+      "bradlc.vscode-tailwindcss",
+      "SimonSiefke.svg-preview",
+      "blanu.vscode-styled-jsx",
+      "Divlo.vscode-styled-jsx-languageserver"
+    ]
+  }
+}
