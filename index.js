@@ -1,9 +1,14 @@
-const a = 1+1;
+const express = require('express');
+const app = express();
 
-console.log(a);
+app.get('/', (req, res)=>{
+    res.send('루트 화면');
+})
 
-const b = 2 + 2;
+app.get('/login', (req, res) =>{
+    res.send('로그인 화면');
+})
 
-console.log(b);
-
-// issue/5 커밋 테스트
+app.listen(3000, ()=> {
+    console.log('success');
+});
