@@ -1,36 +1,46 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-// DB관련
-const {Pool} = require('pg');
-const pg = new Pool({
-  user:'testuser',
-  host:'localhost',
-  database:'study',
-  password:'1234',
-  post:'5432'
-});
+// // DB 모듈
+// const {Pool} = require('pg');
+// const pg = new Pool({
+//   user:'testuser',
+//   host:'localhost',
+//   database:'study',
+//   password:'1234',
+//   post:'5432'
+// });
 
-pg.connect(err=>{
-  if(err) console.log(err);
-  else{
-    console.log('DB success');
-  }
-})
+// // DB 연결 확인
+// pg.connect(err=>{
+//   if(err) console.log(err);
+//   else{
+//     console.log('DB success');
+//   }
+// })
 
 
-/* GET users listing. */
+// 로그인 get
 router.get('/signin', function(req, res, next) {
-  pg.query('SELECT userid FROM account', (err, result)=>{
+  let userData = {
+    id : "2",
+    userid : "test",
+    password : "testpw"
+  }
+  
+  pg.query(`INSERT INTO account (id, userid, password) VALUES 
+            ('${userData.id}, ${userData.userid}, ${userData.password}');`, 
+            (err, result)=>{
     if(err){
       res.sendStatus(500);
     }else{
-      res.status(200).json(result.rows);
+      res.status(200).send('login success');
+      // res.status(200).json(result.rows);
     }
   })
 });
 
-/* GET users listing. */
+// 회원가입 get
 router.get('/signup', function(req, res, next) {
   res.send('signup');
 });
