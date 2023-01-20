@@ -1,12 +1,45 @@
+const createError = require('http-errors');
 const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+// 라우터
+const indexRouter = require('./routes/index');
+const accountRouter = require('./routes/account');
+
 const app = express();
 
-const acoountRouter = require('./routes/account');    // 인덱스는 폴더로 가르켜도 자동으로 index.js 가 불러와짐
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-app.use('/', acoountRouter);
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
-    res.status(404).send('Not Found');
+  
+// 여기에 라우트 추가하고, 라우트 내부에 파일만 추가해주면 됨
+app.use('/', indexRouter);
+app.use('/account', accountRouter);
+
+  
+// 404 핸들러
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
-app.listen(3000);
+// 에러 핸들러
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
