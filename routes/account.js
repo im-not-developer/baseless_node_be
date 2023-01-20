@@ -1,23 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// // DB 모듈
-// const {Pool} = require('pg');
-// const pg = new Pool({
-//   user:'testuser',
-//   host:'localhost',
-//   database:'study',
-//   password:'1234',
-//   post:'5432'
-// });
-
-// // DB 연결 확인
-// pg.connect(err=>{
-//   if(err) console.log(err);
-//   else{
-//     console.log('DB success');
-//   }
-// })
 
 
 // 로그인 get
