@@ -7,11 +7,11 @@ const logger = require('morgan');
 // 라우터
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
-const {sequelize} = require('./models');
+
 
 const app = express();
 
-sequelize.sync();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
