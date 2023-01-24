@@ -1,12 +1,12 @@
 /**
- * User 테이블 만들기  
+ * Account 테이블 만들기  
  * @param {Sequelize} 
  * @param {DataTypes}  
- * 이름, 나이, 결혼여부, 자기소개, 생성일
+ * 회원번호, 회원아이디, 비밀번호, 전화번호, 상태, 가입일
  */
 
 module.exports = (Sequelize, DataTypes) => {
-    return Sequelize.define('signup', {
+    return Sequelize.define('account', {
       id: {
         type: DataTypes.STRING(20),    // type : 자료형
         allowNull: false,              // allowNull: NULL이어도 되니?

@@ -10,5 +10,5 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 db.Sequelize = Sequelize;  // 빈 db객체에 Sequelize 패키지 넣기
 db.sequelize = sequelize;  // 빈 db객체에 Sequelize 인스턴스 넣기
 
-db.Signup = require('./signup')(sequelize, Sequelize);
+db.Account = require('./account')(sequelize, Sequelize);
 module.exports = db;  // 모듈화

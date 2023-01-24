@@ -7,10 +7,13 @@ const logger = require('morgan');
 // 라우터
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
+
+// DB 테이블 생성 모듈
 const {sequelize} = require('./models');
 
 const app = express();
 
+// DB 테이블 생성
 sequelize.sync();
 
 // view engine setup
