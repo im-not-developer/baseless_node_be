@@ -22,10 +22,10 @@ router.get('/signup', function(req, res, next) {
 // 회원가입 post
 router.post('/signup', function(req, res, next){
   Account.create({
-    id : "2",
-    userid : "test",
-    password : "testpw",
-    phoneno : "01000000000",
+    id : "3",
+    userid : "test1",
+    password : "testpw1",
+    phoneno : "01000000001",
     status : "TRUE"
   })
   .then((result) => {
