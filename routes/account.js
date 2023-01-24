@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Account } = require('../models');
+const { Account } = require('../config');
 
 // 로그인 get
 router.get('/signin', function(req, res, next) {
