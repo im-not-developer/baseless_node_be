@@ -7,11 +7,6 @@
 
 module.exports = (Sequelize, DataTypes) => {
     return Sequelize.define('account', {
-      id: {
-        type: DataTypes.STRING(20),    // type : 자료형
-        allowNull: false,              // allowNull: NULL이어도 되니?
-        primaryKey: true
-      },
       userid: {
         type: DataTypes.STRING(20),
         allowNull: false,
