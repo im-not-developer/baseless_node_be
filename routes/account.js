@@ -1,13 +1,24 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const { Account } = require('../config');
 
-router.use(cookieParser());
+app.use(cookieParser());
+app.set('view engine', 'ejs');
+app.set('views', '../views');
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 // 로그인 get
 router.get('/signin', function(req, res, next) {
+  res.render('signin');
+})
+
+// 로그인 post
+router.post('/signin', function(req, res, next) {
   Account.findOne({
     where : {userid : 'test3', password : 'testpw3'}
   })

@@ -4,9 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-// 라우터
-const indexRouter = require('./routes/index');
-const accountRouter = require('./routes/account');
+const router = require('./routes/index');
 
 // DB 테이블 생성 모듈
 const {sequelize} = require('./config');
@@ -22,7 +20,7 @@ sequelize.sync();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -30,11 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-  
-// 여기에 라우트 추가하고, 라우트 내부에 파일만 추가해주면 됨
-app.use('/', indexRouter);
-app.use('/account', accountRouter);
-
+app.use(router);
   
 // 404 핸들러
 app.use(function(req, res, next) {
